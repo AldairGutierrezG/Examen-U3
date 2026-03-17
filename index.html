@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Examen Unidad 3 - Herramientas Digitales</title>
+
+<style>
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+margin:0;
+background:#f4f7fb;
+}
+
+/* HEADER */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#0b5d87;
+padding:10px 30px;
+}
+
+.header img{
+height:70px;
+}
+
+/* CONTENEDOR */
+
+.container{
+max-width:900px;
+margin:30px auto;
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+border-top:6px solid #3a9c35;
+}
+
+h1{
+text-align:center;
+color:#0b5d87;
+}
+
+h2{
+color:#3a9c35;
+}
+
+/* BARRA PROGRESO */
+
+.progress{
+height:8px;
+background:#ddd;
+margin-bottom:20px;
+border-radius:5px;
+overflow:hidden;
+}
+
+.bar{
+height:8px;
+background:#3a9c35;
+width:25%;
+transition:0.4s;
+}
+
+/* PAGINAS */
+
+.page{
+display:none;
+}
+
+.page.active{
+display:block;
+}
+
+.question{
+margin-bottom:25px;
+padding:10px;
+background:#fafafa;
+border-radius:8px;
+}
+
+label{
+display:block;
+margin:4px 0;
+cursor:pointer;
+}
+
+input[type="text"], input[type="date"]{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+textarea{
+width:100%;
+height:90px;
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.case{
+background:#eef6ff;
+padding:15px;
+border-left:6px solid #0b5d87;
+border-radius:6px;
+margin:20px 0;
+}
+
+/* BOTONES */
+
+.buttons{
+display:flex;
+justify-content:space-between;
+margin-top:30px;
+}
+
+button{
+padding:12px 22px;
+border:none;
+background:#0b5d87;
+color:white;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+}
+
+button:hover{
+background:#094b6e;
+}
+
+.footer{
+text-align:center;
+margin-top:20px;
+color:#666;
+font-size:13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+.header{
+flex-direction:column;
+gap:10px;
+}
+
+.header img{
+height:50px;
+}
+
+.container{
+padding:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<img src="utld.png">
+<img src="renders.png">
+</div>
+
+<div class="container">
+
+<h1>Examen Unidad 3</h1>
+<p style="text-align:center;">Herramientas Digitales de Comunicación</p>
+
+<div class="progress">
+<div class="bar" id="progressBar"></div>
+</div>
+
+<form id="examForm">
+
+<!-- PAGINA 1 -->
+
+<div class="page active">
+
+<h2>Registro del Alumno</h2>
+
+<label>Nombre</label>
+<input type="text" name="nombre" required>
+
+<label>Matrícula</label>
+<input type="text" name="matricula" required>
+
+<label>Carrera</label>
+<input type="text" name="carrera">
+
+<label>Materia</label>
+<input type="text" name="materia">
+
+<label>Fecha</label>
+<input type="date" name="fecha">
+
+<div class="buttons">
+<div></div>
+<button type="button" onclick="nextPage()">Siguiente</button>
+</div>
+
+</div>
+
+<!-- PAGINA 2 -->
+
+<div class="page">
+
+<h2>Preguntas de Opción Múltiple</h2>
+
+<div class="question">
+1. ¿Qué son las herramientas digitales?
+<label><input type="radio" name="q1" value="A" required> Redes sociales únicamente</label>
+<label><input type="radio" name="q1" value="B"> Programas exclusivos para programadores</label>
+<label><input type="radio" name="q1" value="C"> Aplicaciones o plataformas que permiten crear, compartir o gestionar información digital</label>
+<label><input type="radio" name="q1" value="D"> Dispositivos eléctricos utilizados en oficinas</label>
+</div>
+
+<div class="question">
+2. ¿Cuál de las siguientes es una función de las herramientas digitales?
+<label><input type="radio" name="q2" value="A" required> Facilitar la comunicación y organización de información</label>
+<label><input type="radio" name="q2" value="B"> Limitar la colaboración entre personas</label>
+<label><input type="radio" name="q2" value="C"> Sustituir completamente el trabajo humano</label>
+<label><input type="radio" name="q2" value="D"> Aumentar el consumo energético</label>
+</div>
+
+<div class="question">
+3. ¿Qué tipo de comunicación ocurre en tiempo real?
+<label><input type="radio" name="q3" value="A" required> Diferida</label>
+<label><input type="radio" name="q3" value="B"> Automatizada</label>
+<label><input type="radio" name="q3" value="C"> Asincrónica</label>
+<label><input type="radio" name="q3" value="D"> Sincrónica</label>
+</div>
+
+<div class="question">
+4. ¿Cuál de los siguientes es un ejemplo de comunicación asincrónica?
+<label><input type="radio" name="q4" value="A" required> Reunión virtual</label>
+<label><input type="radio" name="q4" value="B"> Correo electrónico</label>
+<label><input type="radio" name="q4" value="C"> Chat en vivo</label>
+<label><input type="radio" name="q4" value="D"> Videollamada</label>
+</div>
+
+<div class="question">
+5. ¿Cuál de las siguientes es una herramienta de búsqueda de información?
+<label><input type="radio" name="q5" value="A" required> Canva</label>
+<label><input type="radio" name="q5" value="B"> WhatsApp</label>
+<label><input type="radio" name="q5" value="C"> Zoom</label>
+<label><input type="radio" name="q5" value="D"> Google</label>
+</div>
+
+<div class="question">
+6. ¿Qué tipo de herramienta permite diseñar o producir contenido digital?
+<label><input type="radio" name="q6" value="A" required> De almacenamiento</label>
+<label><input type="radio" name="q6" value="B"> De comunicación</label>
+<label><input type="radio" name="q6" value="C"> De difusión</label>
+<label><input type="radio" name="q6" value="D"> De creación de contenido</label>
+</div>
+
+<div class="question">
+7. ¿Cuál de las siguientes herramientas sirve para organizar proyectos o tareas?
+<label><input type="radio" name="q7" value="A" required> Instagram</label>
+<label><input type="radio" name="q7" value="B"> Trello</label>
+<label><input type="radio" name="q7" value="C"> YouTube</label>
+<label><input type="radio" name="q7" value="D"> Google Meet</label>
+</div>
+
+<div class="question">
+8. ¿Qué función cumplen las herramientas de difusión?
+<label><input type="radio" name="q8" value="A" required> Diseñar presentaciones</label>
+<label><input type="radio" name="q8" value="B"> Programar aplicaciones</label>
+<label><input type="radio" name="q8" value="C"> Compartir contenido con una audiencia amplia</label>
+<label><input type="radio" name="q8" value="D"> Guardar información en una computadora</label>
+</div>
+
+<div class="question">
+9. ¿Cuál es un ejemplo de plataforma de videoconferencia?
+<label><input type="radio" name="q9" value="A" required> Word</label>
+<label><input type="radio" name="q9" value="B"> Zoom</label>
+<label><input type="radio" name="q9" value="C"> Excel</label>
+<label><input type="radio" name="q9" value="D"> Photoshop</label>
+</div>
+
+<div class="question">
+10. ¿Cuál es la función principal de los entornos de almacenamiento digital?
+<label><input type="radio" name="q10" value="A" required> Diseñar páginas web</label>
+<label><input type="radio" name="q10" value="B"> Crear videojuegos</label>
+<label><input type="radio" name="q10" value="C"> Editar videos</label>
+<label><input type="radio" name="q10" value="D"> Guardar y compartir información en línea</label>
+</div>
+
+<div class="question">
+11. ¿Cuál es un riesgo del uso excesivo de herramientas digitales?
+<label><input type="radio" name="q11" value="A" required> Dependencia tecnológica</label>
+<label><input type="radio" name="q11" value="B"> Mejor memoria humana</label>
+<label><input type="radio" name="q11" value="C"> Eliminación del estrés</label>
+<label><input type="radio" name="q11" value="D"> Mejora automática del aprendizaje</label>
+</div>
+
+<div class="question">
+12. ¿Qué tecnología permite que las máquinas aprendan de datos?
+<label><input type="radio" name="q12" value="A" required> Realidad Virtual</label>
+<label><input type="radio" name="q12" value="B"> Internet</label>
+<label><input type="radio" name="q12" value="C"> Inteligencia Artificial</label>
+<label><input type="radio" name="q12" value="D"> Blockchain</label>
+</div>
+
+<div class="buttons">
+<button type="button" onclick="prevPage()">Anterior</button>
+<button type="button" onclick="nextPage()">Siguiente</button>
+</div>
+
+</div>
+
+<!-- PAGINA 3 (resto preguntas opción múltiple) -->
+
+<div class="page">
+
+<h2>Más preguntas de opción múltiple</h2>
+
+<div class="question">
+13. ¿Qué característica define a blockchain?
+<label><input type="radio" name="q13" value="A" required> Registro digital descentralizado</label>
+<label><input type="radio" name="q13" value="B"> Comunicación instantánea</label>
+<label><input type="radio" name="q13" value="C"> Almacenamiento temporal</label>
+<label><input type="radio" name="q13" value="D"> Centralización de datos</label>
+</div>
+
+<div class="question">
+14. El Internet de las Cosas (IoT) consiste en:
+<label><input type="radio" name="q14" value="A" required> Crear videojuegos</label>
+<label><input type="radio" name="q14" value="B"> Conectar computadoras únicamente</label>
+<label><input type="radio" name="q14" value="C"> Desarrollar redes sociales</label>
+<label><input type="radio" name="q14" value="D"> Conectar objetos físicos a internet para recopilar datos</label>
+</div>
+
+<div class="question">
+15. ¿Qué tecnología permite simular entornos digitales interactivos?
+<label><input type="radio" name="q15" value="A" required> Correo electrónico</label>
+<label><input type="radio" name="q15" value="B"> Blockchain</label>
+<label><input type="radio" name="q15" value="C"> Internet de las Cosas</label>
+<label><input type="radio" name="q15" value="D"> Realidad Virtual</label>
+</div>
+
+<div class="buttons">
+<button type="button" onclick="prevPage()">Anterior</button>
+<button type="button" onclick="nextPage()">Siguiente</button>
+</div>
+
+</div>
+
+<!-- PAGINA CASOS -->
+
+<div class="page">
+
+<h2>Casos de Estudio</h2>
+
+<div class="case"><b>Caso 1</b> Un equipo de estudiantes debe realizar un proyecto de investigación. Necesitan buscar información confiable, trabajar colaborativamente y presentar resultados digitales.</div>
+
+<div class="question">
+16. ¿Qué tipo de herramientas usarías para buscar información?<textarea name="q16"></textarea>
+</div>
+
+<div class="question">
+17. Menciona una herramienta específica que podrían usar.<textarea name="q17"></textarea>
+</div>
+
+<div class="question">
+18. ¿Qué herramienta recomendarías para trabajar colaborativamente en un documento?<textarea name="q18"></textarea>
+</div>
+
+<div class="case"><b>Caso 2</b> Una empresa necesita realizar reuniones con trabajadores ubicados en diferentes ciudades para discutir avances de proyectos.</div>
+
+<div class="question">
+19. ¿Qué tipo de herramienta digital deberían usar?<textarea name="q19"></textarea>
+</div>
+
+<div class="question">
+20. Menciona dos plataformas.<textarea name="q20"></textarea>
+</div>
+
+<div class="case"><b>Caso 3</b> Un emprendedor quiere promocionar su negocio y alcanzar más clientes mediante internet.</div>
+
+<div class="question">
+21. ¿Qué herramientas utilizarías?<textarea name="q21"></textarea>
+</div>
+
+<div class="question">
+22. Explica por qué serían adecuadas.<textarea name="q22"></textarea>
+</div>
+
+<div class="case"><b>Caso 4</b> Una empresa de energía quiere monitorear paneles solares de forma remota utilizando sensores conectados a internet.</div>
+
+<div class="question">
+23. ¿Qué tendencia digital se está utilizando?<textarea name="q23"></textarea>
+</div>
+
+<div class="question">
+24. Explica brevemente cómo funciona.<textarea name="q24"></textarea>
+</div>
+
+<div class="buttons">
+<button type="button" onclick="prevPage()">Anterior</button>
+<button type="button" onclick="nextPage()">Siguiente</button>
+</div>
+
+</div>
+
+<!-- PREGUNTAS ABIERTAS -->
+
+<div class="page">
+
+<h2>Preguntas Abiertas</h2>
+
+<div class="question">25. ¿Por qué es importante saber clasificar las herramientas digitales?<textarea name="q25"></textarea></div>
+<div class="question">26. Explica la diferencia entre comunicación sincrónica y asincrónica.<textarea name="q26"></textarea></div>
+<div class="question">27. ¿Puede una herramienta pertenecer a más de una categoría? Explica.<textarea name="q27"></textarea></div>
+<div class="question">28. ¿Qué impacto tiene la inteligencia artificial en la industria?<textarea name="q28"></textarea></div>
+<div class="question">29. ¿Las tendencias digitales reemplazarán empleos o crearán nuevos?<textarea name="q29"></textarea></div>
+<div class="question">30. ¿Qué habilidades humanas no pueden ser reemplazadas por la tecnología?<textarea name="q30"></textarea></div>
+
+<div class="buttons">
+<button type="button" onclick="prevPage()">Anterior</button>
+<button type="submit">Enviar examen</button>
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<div class="footer">
+Universidad Tecnológica De La Laguna Durango • Evaluación Académica
+</div>
+
+<script>
+
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw7IF6AoH1gwcoFkJvWM2eNrnVtT-CUuPdvtyUnoBn7M-JJxD3IVWKnmSh5qttAeaYc/exec";
+
+let page = 0;
+let pages = document.querySelectorAll(".page");
+let progress = document.getElementById("progressBar");
+
+let tiempoTotal = 40 * 60;
+let timer;
+
+/* ------------------- MODO EXAMEN ------------------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+document.documentElement.requestFullscreen().catch(()=>{});
+
+iniciarTemporizador();
+
+});
+
+/* ------------------- TEMPORIZADOR ------------------- */
+
+function iniciarTemporizador(){
+
+let reloj = document.createElement("div");
+
+reloj.style.position="fixed";
+reloj.style.top="10px";
+reloj.style.right="20px";
+reloj.style.background="#0b5d87";
+reloj.style.color="white";
+reloj.style.padding="10px";
+reloj.style.borderRadius="8px";
+
+document.body.appendChild(reloj);
+
+timer = setInterval(()=>{
+
+let min = Math.floor(tiempoTotal/60);
+let seg = tiempoTotal % 60;
+
+reloj.innerHTML = "Tiempo: "+min+":"+seg.toString().padStart(2,"0");
+
+tiempoTotal--;
+
+if(tiempoTotal<=0){
+clearInterval(timer);
+alert("Tiempo terminado");
+enviarExamen();
+}
+
+},1000);
+
+}
+
+/* ------------------- NAVEGACION ------------------- */
+
+function showPage(){
+
+pages.forEach(p=>p.classList.remove("active"));
+pages[page].classList.add("active");
+
+let percent = ((page+1)/pages.length)*100;
+progress.style.width = percent + "%";
+
+window.scrollTo(0,0);
+
+}
+
+function nextPage(){
+
+if(page < pages.length-1){
+
+page++;
+showPage();
+
+}
+
+}
+
+function prevPage(){
+
+if(page > 0){
+
+page--;
+showPage();
+
+}
+
+}
+
+/* ------------------- BLOQUEOS ------------------- */
+
+document.addEventListener("contextmenu", e=>e.preventDefault());
+
+document.addEventListener("keydown", function(e){
+
+if(e.ctrlKey && (e.key==="c" || e.key==="u")){
+e.preventDefault();
+}
+
+});
+
+/* ------------------- CALIFICACION ------------------- */
+
+function calcularCalificacion(data){
+
+const respuestas = {
+
+q1:"C",
+q2:"A",
+q3:"D",
+q4:"B",
+q5:"D",
+q6:"D",
+q7:"B",
+q8:"C",
+q9:"B",
+q10:"D",
+q11:"A",
+q12:"C",
+q13:"A",
+q14:"D",
+q15:"D"
+
+};
+
+let puntos = 0;
+
+for(let key in respuestas){
+
+if(data[key] === respuestas[key]){
+puntos++;
+}
+
+}
+
+return puntos;
+
+}
+
+/* ------------------- ENVIO ------------------- */
+
+document.getElementById("examForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+enviarExamen();
+
+});
+
+function enviarExamen(){
+
+const formData = new FormData(document.getElementById("examForm"));
+
+let data = {};
+
+formData.forEach((value,key)=>{
+data[key] = value;
+});
+
+let calificacion = calcularCalificacion(data);
+
+data.calificacion = calificacion;
+
+console.log(data);
+
+fetch(SCRIPT_URL,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+})
+.then(res=>res.text())
+.then(()=>{
+alert("Examen enviado\nCalificación automática: "+calificacion+"/15");
+
+if(document.fullscreenElement){
+document.exitFullscreen();
+}
+
+})
+.catch(error=>{
+alert("Error al enviar examen");
+console.error(error);
+});
+
+}
+
+/* ------------------- PANEL PROFESOR ------------------- */
+
+let contadorClick = 0;
+
+document.querySelector(".footer").addEventListener("click",()=>{
+
+contadorClick++;
+
+if(contadorClick===5){
+
+let clave = prompt("Panel profesor - contraseña");
+
+if(clave==="admin123"){
+
+mostrarPanelProfesor();
+
+}
+
+}
+
+});
+
+function mostrarPanelProfesor(){
+
+let panel = document.createElement("div");
+
+panel.style.position="fixed";
+panel.style.top="0";
+panel.style.left="0";
+panel.style.width="100%";
+panel.style.height="100%";
+panel.style.background="white";
+panel.style.zIndex="9999";
+panel.style.padding="40px";
+panel.style.overflow="auto";
+
+panel.innerHTML=`
+<h2>Panel del Profesor</h2>
+
+<button onclick="descargarExcel()">Descargar Excel</button>
+
+<h3>Estadísticas</h3>
+<div id="estadisticas">Cargando datos...</div>
+
+<button onclick="location.reload()">Cerrar</button>
+`;
+
+document.body.appendChild(panel);
+
+cargarEstadisticas();
+
+}
+
+function cargarEstadisticas(){
+
+fetch(SCRIPT_URL)
+.then(res=>res.json())
+.then(data=>{
+
+let totalAlumnos = data.length-1;
+
+let suma = 0;
+
+let fallos = {
+q1:0,q2:0,q3:0,q4:0,q5:0,
+q6:0,q7:0,q8:0,q9:0,q10:0,
+q11:0,q12:0,q13:0,q14:0,q15:0
+};
+
+for(let i=1;i<data.length;i++){
+
+let fila = data[i];
+
+let cal = parseInt(fila[20]);
+suma += cal;
+
+}
+
+let promedio = (suma/totalAlumnos).toFixed(2);
+
+document.getElementById("estadisticas").innerHTML=`
+
+<p><b>Alumnos que presentaron:</b> ${totalAlumnos}</p>
+
+<p><b>Promedio del grupo:</b> ${promedio}/15</p>
+
+`;
+
+});
+
+}
+
+function descargarExcel(){
+
+window.open(
+"https://docs.google.com/spreadsheets/d/10wLoi3Ki7jtNHZaGahZnjWarmXGOegYaBcZ5rijOdH8/edit?gid=0#gid=0",
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
